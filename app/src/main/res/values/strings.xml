@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">mVignetteApp</string>
+    <string name="button_add_text">ADD NEW</string>
 </resources>
