@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">mVignetteApp</string>
     <string name="button_add_text">ADD NEW</string>
+    <string name="entry_fleet_name">Fleet name</string>
+    <string name="button_submit_text">SUBMIT</string>
 </resources>

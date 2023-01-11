@@ -60,7 +60,14 @@ public class MainActivity extends AppCompatActivity {
 
     public void fleetDetailsActivity (View view) {
         Intent intent = new Intent(this, FleetDetailsActivity.class);
-        String message = "Dodaj studenta v seznam.";
+        String message = "View fleet";
+        intent.putExtra(EXTRA_MESSAGE, message);
+        startActivity(intent);
+    }
+
+    public void addFleetActivity (View view) {
+        Intent intent = new Intent(this, AddFleetActivity.class);
+        String message = "Add new fleet";
         intent.putExtra(EXTRA_MESSAGE, message);
         startActivity(intent);
     }
