@@ -2,10 +2,8 @@ package com.example.mvignetteapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.TextView;
 
 import com.android.volley.RequestQueue;
@@ -19,21 +17,21 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class FleetDetailsActivity extends AppCompatActivity {
     ArrayList<TextView> titles = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_fleet_details);
 
-        titles.add((TextView) findViewById(R.id.fleetName1));
-        titles.add((TextView) findViewById(R.id.fleetName2));
-        titles.add((TextView) findViewById(R.id.fleetName3));
-        titles.add((TextView) findViewById(R.id.fleetName4));
+        titles.add((TextView) findViewById(R.id.vehicleName1));
+        titles.add((TextView) findViewById(R.id.vehicleName2));
+        titles.add((TextView) findViewById(R.id.vehicleName3));
+        titles.add((TextView) findViewById(R.id.vehicleName4));
 
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
-        String url = "https://mvignette.azurewebsites.net/api/v1/Fleet?userName=bob";
+        String url = "https://mvignette.azurewebsites.net/api/v1/Fleet/1";
         JsonArrayRequest request = new JsonArrayRequest(url, jsonArrayListener, errorListener);
         requestQueue.add(request);
     }
@@ -55,13 +53,4 @@ public class MainActivity extends AppCompatActivity {
     };
 
     private final Response.ErrorListener errorListener = error -> Log.d("REST error", error.getMessage());
-
-    public static final String EXTRA_MESSAGE = "mvignette.azurewebsites.net";
-
-    public void fleetDetailsActivity (View view) {
-        Intent intent = new Intent(this, FleetDetailsActivity.class);
-        String message = "Dodaj studenta v seznam.";
-        intent.putExtra(EXTRA_MESSAGE, message);
-        startActivity(intent);
-    }
 }
